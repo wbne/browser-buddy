@@ -33,6 +33,7 @@ function createBuddy(customBuddySrc) {
     buddy.style.position = "fixed"
     buddy.style.right = "10px"
     buddy.style.bottom = "10px"
+    buddy.style.pointerEvents = "none";
 
     if(width > height) {
         buddy.style.height = "10vh"
