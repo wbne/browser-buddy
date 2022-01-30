@@ -5,10 +5,9 @@ function customBuddyError(error) {
 }
 
 function createBuddy(customBuddySrc) {
-    console.log(customBuddySrc)
+    console.log("creating")
     let width = window.screen.availWidth
     let height = window.screen.availHeight
-    let buddySrc = ""
 
     if(!mozExt) {
         let manifest = browser.runtime.getManifest()
@@ -17,17 +16,15 @@ function createBuddy(customBuddySrc) {
         console.log("mozilla extension url retrieved")
     }
 
-    if(customBuddySrc.customBuddy1) {
-        buddySrc = "\"" + customBuddySrc.customBuddy1 + customBuddySrc.customBuddy2 + customBuddySrc.customBuddy3 + customBuddySrc.customBuddy4 + "\""
+    console.log(customBuddySrc)
+    if(customBuddySrc === undefined) {
+        customBuddySrc = mozExt + "default_images/niolet.png"
     }
-    else {
-        buddySrc = "url('" + mozExt + "default_images/niolet.png" + "')"
-    }
-    
-
+    customBuddySrc = "url('" + customBuddySrc + "')"
+    console.log(customBuddySrc)
     let body = document.getElementsByTagName("body")[0]
-    let buddy = document.createElement("div");
-    buddy.style.background = buddySrc
+    let buddy = document.createElement("div")
+    buddy.style.backgroundImage = customBuddySrc
     buddy.style.backgroundSize = "contain"
     buddy.style.backgroundRepeat = "no-repeat"
     buddy.style.position = "fixed"
@@ -50,8 +47,7 @@ function createBuddy(customBuddySrc) {
 }
 
 function clear() {
-    browser.storage.sync.clear()
+    browser.storage.local.clear()
 }
 
-let customBuddySrc = browser.storage.sync.get()
-customBuddySrc.then(createBuddy, customBuddyError)
+browser.storage.local.get().then(items => createBuddy(items.buddy))
