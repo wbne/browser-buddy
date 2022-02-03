@@ -2,14 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="options.css">
   </head>
   <body>
-    <h1>this is da options page.</h1>
-    <form>
-      <p>custom image</p><input type="file" id="upload_photo"></input>
-    </form>
-    <img id="result" />
+    <img id="result" class="logo" />
+    <h2 class="title">Browser Buddy</h2>
+    <div class="options">
+      <div class="option_line"><p class="option_text">Change Size (In Percent): </p><input type="textarea" id="size"></input></div> 
+      <div class="option_line"><p class="option_text">Upload Custom Image: </p><input type="file" id="upload_photo"></input></div> 
+      
+    </div>
+    <div class="theme_option">
+      <input type="radio" id="light" name="theme">
+      <input type="radio" id="dark" name="theme">
+      <label for="light">Light Mode</label>
+      <label for="dark">Dark Mode</label>
+    </div> 
+    
   </body>
   <script src="options.js"></script>
 </html>

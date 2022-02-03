@@ -1,3 +1,82 @@
-body {
-    color: purple;
+html {
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    border-radius: 50%;
+}
+
+.title {
+    text-align: center;
+}
+
+.option_line {
+    display: flex;
+    padding-left: 12vw;
+}
+
+.options {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.option_text {
+    font-size: 15px;
+}
+
+.theme_option {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.light {
+    background-color: #FFF;
+    color: #000;
+}
+
+.dark {
+    background-color: rgba(28, 27, 34);
+    color: #CCC;
+}
+
+input[type="file"] {
+    margin-top: 15px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    margin: 10px;
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+label:hover {
+    transform: scale(1.1);
+}
+
+label[for="light"] {
+    border-bottom: solid rgba(28, 27, 34) 1px;
+}
+
+label[for="dark"] {
+    border-bottom: solid white 1px;
+}
+
+input[id="light"]:checked ~ label[for="light"] {
+    transform: scale(1.1);
+}
+
+input[id="dark"]:checked ~ label[for="dark"] {
+    transform: scale(1.1);
 }
